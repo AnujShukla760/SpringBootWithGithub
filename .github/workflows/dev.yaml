@@ -27,4 +27,8 @@ jobs:
           cp ${{ github.workspace }}/target/demo-0.0.1-SNAPSHOT.jar ${{ github.workspace }}/test.jar
           ls -ltr
           java -jar test.jar
-      
+
+      - name: aborting the jar file run
+        id: atjfr
+        run: |
+          pkill -f "test.jar" || echo "process not found"
