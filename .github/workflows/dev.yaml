@@ -26,8 +26,10 @@ jobs:
         run: |
           cp ${{ github.workspace }}/target/demo-0.0.1-SNAPSHOT.jar ${{ github.workspace }}/test.jar
           ls -ltr
-          java -jar test.jar
+          java -jar test.jar &           
 
+#                ("&" is used)   to run the jar file in the  background so that the process can be terminated
+#                 because if we run jar file in the foreground then it cant be terminated
       - name: aborting the jar file run
         id: atjfr
         run: |
