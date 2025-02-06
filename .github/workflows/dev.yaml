@@ -28,12 +28,15 @@ jobs:
           ls -ltr
           java -jar test.jar &  
 
+# This is the command to get and print the Http Status Code of the "jar" file during the run
       - name: Get Status Code
+        id: gsc
         run: |
           STATUS_CODE=$(curl -o /dev/null -s -w "%{http_code}" https://example.com)
           echo "STATUS_CODE=$STATUS_CODE" >> $GITHUB_ENV
 
       - name: Print Status Code
+        id: psc
         run: echo "The HTTP status code is $STATUS_CODE"
 
 #                ("&" is used)   to run the jar file in the  background so that the process can be terminated
