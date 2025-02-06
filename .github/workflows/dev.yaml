@@ -42,12 +42,12 @@ jobs:
 
       - name: Run a command and print exit status
         run: |
-          your-command-here
+          pkill -f "test.jar" || echo "process not found"
           echo "Exit status: $?"
 
 #                ("&" is used)   to run the jar file in the  background so that the process can be terminated
 #                 because if we run jar file in the foreground then it cant be terminated
-      - name: aborting the jar file run
-        id: atjfr
-        run: |
-          pkill -f "test.jar"      || echo "process not found"
+#      - name: aborting the jar file run
+#        id: atjfr
+#        run: |
+#          pkill -f "test.jar"      || echo "process not found"
