@@ -24,9 +24,11 @@ jobs:
       - name: running the jar file
         id: rtjf
         run: |
+          
           cp ${{ github.workspace }}/target/demo-0.0.1-SNAPSHOT.jar ${{ github.workspace }}/test.jar
           ls -ltr
           java -jar test.jar &  
+          echo "Exit status: $?"
 
 # This is the command to get and print the Http Status Code of the "jar" file during the run
 #      - name: Get Status Code
@@ -40,10 +42,10 @@ jobs:
 #        run: echo "The HTTP status code is $STATUS_CODE"
 
 
-      - name: Run a command and print exit status
-        run: |
-          pkill -f "test.jar" || echo "process not found"
-          echo "Exit status: $?"
+#      - name: Run a command and print exit status
+#        run: |
+#          pkill -f "test.jar" || echo "process not found"
+#          echo "Exit status: $?"
 
 #                ("&" is used)   to run the jar file in the  background so that the process can be terminated
 #                 because if we run jar file in the foreground then it cant be terminated
