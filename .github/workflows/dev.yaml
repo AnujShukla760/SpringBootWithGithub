@@ -36,16 +36,20 @@ jobs:
         run: |
           STATUS_CODE=$(curl -o /dev/null -s -w "%{http_code}" https://example.com)
           echo "STATUS_CODE=$STATUS_CODE" >> $GITHUB_ENV
-            if [ "$STATUS_CODE" -eq 200 ]; then
-            echo "Website is up!"
+          
+           
+
+      - name: Print Status Code
+        id: psc
+        run: |
+          if [ "$STATUS_CODE" -eq 200 ]; then
+           echo "Website is up!"
           else
-            echo "Website is down!" Status code: $STATUS_CODE
-            exit 1
-            fi
-#
-#      - name: Print Status Code
-#        id: psc
-#        run: echo "The HTTP status code is $STATUS_CODE"
+           echo "Website is down!" Status code: $STATUS_CODE
+           exit 1
+           fi
+          
+          echo "The HTTP status code is $STATUS_CODE"
 
 
 #      - name: Run a command and print exit status
@@ -55,7 +59,7 @@ jobs:
 
 #                ("&" is used)   to run the jar file in the  background so that the process can be terminated
 #                 because if we run jar file in the foreground then it cant be terminated
-#      - name: aborting the jar file run
-#        id: atjfr
-#        run: |
-#          pkill -f "test.jar"      || echo "process not found"
+      - name: aborting the jar file run
+        id: atjfr
+        run: |
+          pkill -f "test.jar"      || echo "process not found"
