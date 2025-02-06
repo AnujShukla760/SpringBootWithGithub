@@ -36,10 +36,10 @@ jobs:
         run: |
           STATUS_CODE=$(curl -o /dev/null -s -w "%{http_code}" https://example.com)
           echo "STATUS_CODE=$STATUS_CODE" >> $GITHUB_ENV
-          if($STATUS_CODE=200)
-          echo "successfully"
+            if [ "$STATUS_CODE" -eq 200 ]; then
+            echo "Website is up!"
           else
-          echo "not good"
+            echo "Website is down! Status code: $STATUS_CODE
 
 #
 #      - name: Print Status Code
