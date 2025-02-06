@@ -31,11 +31,16 @@ jobs:
           echo "Exit status: $?"
 
 # This is the command to get and print the Http Status Code of the "jar" file during the run
-#      - name: Get Status Code
-#        id: gsc
-#        run: |
-#          STATUS_CODE=$(curl -o /dev/null -s -w "%{http_code}" https://example.com)
-#          echo "STATUS_CODE=$STATUS_CODE" >> $GITHUB_ENV
+      - name: Get Status Code
+        id: gsc
+        run: |
+          STATUS_CODE=$(curl -o /dev/null -s -w "%{http_code}" https://example.com)
+          echo "STATUS_CODE=$STATUS_CODE" >> $GITHUB_ENV
+          if($STATUS_CODE=200)
+          echo "successfully"
+          else
+          echo "not good"
+
 #
 #      - name: Print Status Code
 #        id: psc
