@@ -40,7 +40,8 @@ jobs:
             echo "Website is up!"
           else
             echo "Website is down! Status code: $STATUS_CODE
-
+            exit 1
+            fi
 #
 #      - name: Print Status Code
 #        id: psc
