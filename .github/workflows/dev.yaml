@@ -39,7 +39,7 @@ jobs:
             if [ "$STATUS_CODE" -eq 200 ]; then
             echo "Website is up!"
           else
-            echo "Website is down! Status code: $STATUS_CODE
+            echo "Website is down!" Status code: $STATUS_CODE
             exit 1
             fi
 #
