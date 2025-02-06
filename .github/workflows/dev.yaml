@@ -27,7 +27,14 @@ jobs:
           cp ${{ github.workspace }}/target/demo-0.0.1-SNAPSHOT.jar ${{ github.workspace }}/test.jar
           ls -ltr
           java -jar test.jar &  
-          echo git status
+
+      - name: Get Status Code
+        run: |
+          STATUS_CODE=$(curl -o /dev/null -s -w "%{http_code}" https://example.com)
+          echo "STATUS_CODE=$STATUS_CODE" >> $GITHUB_ENV
+
+      - name: Print Status Code
+        run: echo "The HTTP status code is $STATUS_CODE"
 
 #                ("&" is used)   to run the jar file in the  background so that the process can be terminated
 #                 because if we run jar file in the foreground then it cant be terminated
