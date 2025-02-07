@@ -53,6 +53,10 @@ jobs:
           
           echo "The HTTP status code is $STATUS_CODE"
 
+      - name: run the tests
+        id: rtt
+        run: |
+          mvn test
 
 #      - name: Run a command and print exit status
 #        run: |
@@ -64,3 +68,4 @@ jobs:
         id: atjfr
         run: |
           pkill -f "test.jar"      || echo "process not found"
+          
