@@ -28,9 +28,11 @@ jobs:
           cp ${{ github.workspace }}/target/demo-0.0.1-SNAPSHOT.jar ${{ github.workspace }}/test.jar
           ls -ltr
           java -jar test.jar &  
-          echo "Exit status: $?"
+#  ("&" is used)   to run the jar file in the  background so that the process can be terminated
+# because if we run jar file in the foreground then it cant be terminated
 
-# This is the command to get and print the Http Status Code of the "jar" file during the run
+
+# This is the command to get  the Http Status Code of the "jar" file during the run
       - name: Get Status Code
         id: gsc
         run: |
@@ -38,7 +40,7 @@ jobs:
           echo "STATUS_CODE=$STATUS_CODE" >> $GITHUB_ENV
           
            
-
+# This command is used to print the Http Status Code and then continue the pipeline if the "Code =200"
       - name: Print Status Code
         id: psc
         run: |
@@ -57,8 +59,7 @@ jobs:
 #          pkill -f "test.jar" || echo "process not found"
 #          echo "Exit status: $?"
 
-#                ("&" is used)   to run the jar file in the  background so that the process can be terminated
-#                 because if we run jar file in the foreground then it cant be terminated
+#
       - name: aborting the jar file run
         id: atjfr
         run: |
