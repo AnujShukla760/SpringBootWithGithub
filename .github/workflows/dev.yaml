@@ -36,7 +36,7 @@ jobs:
       - name: Get Status Code
         id: gsc
         run: |
-          STATUS_CODE=$(curl -k -o /dev/null -s -w "%{http_code}" https://localhost:8080)
+          STATUS_CODE=$(curl  -o /dev/null -s -w "%{http_code}" https://example.com)
           echo "STATUS_CODE=$STATUS_CODE" >> $GITHUB_ENV
           
            
