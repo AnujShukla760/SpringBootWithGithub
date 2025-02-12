@@ -6,10 +6,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/Feature/calculator.feature",
+        features = "src/test/resources/Feature/employee.feature",
         glue = "StepDef",
         plugin = {"pretty","html:target/cucumber-reports.html"},
-         tags="@Anuj"
+         tags="@employee"
 )
 
 public class RunnerClass {

@@ -1,4 +1,7 @@
-Feature: user is adding new details
-  Scenario: to POST the details
-    When User is hitting the post API
-    Then Response Code should be 201
+@employee
+Feature: Employee API Basic Test
+
+  Scenario: Check if Employee API is running
+    Given create the request body
+    When the client sends a POST request
+    Then the response status should be 201
