@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/Feature/employee.feature",
         glue = "StepDef",
         plugin = {"pretty","html:target/cucumber-reports.html"},
-         tags="@employee"
+         tags="@DataTable"
 )
 
 public class RunnerClass {

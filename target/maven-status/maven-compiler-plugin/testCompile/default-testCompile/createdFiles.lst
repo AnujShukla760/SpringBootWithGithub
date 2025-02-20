@@ -1,4 +1,5 @@
 com\example\Employee\EmployeeProjectApplicationTests.class
+StepDef\MyStepdefs.class
 StepDef\RunnerClass.class
 StepDef\Calculator.class
 StepDef\StepDefinitions.class

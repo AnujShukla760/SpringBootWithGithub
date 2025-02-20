@@ -67,5 +67,5 @@ jobs:
       - name: aborting the jar file run
         id: atjfr
         run: |
-          pkill -f "test.jar"      || echo "process not found"
+          pkill -f "test.jar"     || echo "process not found"
           
