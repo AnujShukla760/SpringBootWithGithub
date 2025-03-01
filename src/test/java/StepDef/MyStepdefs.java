@@ -11,11 +11,11 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+import org.assertj.core.internal.Lists;
 import org.junit.Assert;
-import org.junit.Before;
-import org.springframework.beans.factory.annotation.Value;
-
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class MyStepdefs {
@@ -70,7 +70,6 @@ int actualResponseCode= response.getStatusCode();
     }
  ///  @@@@@@@@@@@@@@@@ Here we are using the DataTable concept to input data at the runtime and to take the use of BASE URL @@@@@@@@@@@@@@@@@@@@@@
 //@Value("${base.Url}")
-String baseUrl="http://localhost:8080";
 
     @Given("create the request body with datable")
     public void createTheRequestBodyWithDatable(DataTable dataTable) throws JsonProcessingException {
@@ -87,7 +86,7 @@ String baseUrl="http://localhost:8080";
     @When("the client sends a POST request to server")
 
     public void theClientSendsAPOSTRequestToServer() throws IOException {
-      //  UtilityClass.readFile();
+
       String url=  UtilityClass.getProperty("url");
         response=requestSpecification.post(url+"/emp/create");
 
@@ -106,8 +105,9 @@ String baseUrl="http://localhost:8080";
     }
 
     @When("the client sends a GET request to server")
-    public void theClientSendsAGETRequestToServer() {
-       response=requestSpecification.get(baseUrl+"/emp/get");
+    public void theClientSendsAGETRequestToServer() throws IOException {
+        String url=  UtilityClass.getProperty("url");
+       response=requestSpecification.get(url+"/emp/get");
 
     }
 

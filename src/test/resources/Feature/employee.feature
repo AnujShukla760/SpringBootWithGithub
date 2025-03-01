@@ -19,7 +19,7 @@ Feature: Employee API Basic Test
      |Rishi|Shukla@231 |
     When the client sends a POST request to server
     Then the response status should be shown as 201
-
+ @DataTable
   Scenario: Check if Employee API is running
     Given User wants to get the data from server
     When the client sends a GET request to server

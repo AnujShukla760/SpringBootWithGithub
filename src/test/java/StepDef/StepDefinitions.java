@@ -21,7 +21,7 @@ public class StepDefinitions {
         private int result;
         private  Calculator calculator;  // assuming there's a StepDef.Calculator class to handle the addition
 
-    private Response response;
+
         @When("I click on add")
         public void i_Click_On_Add() {
             result = calculator.add(num1, num2);  // Perform the addition
